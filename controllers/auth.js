@@ -296,7 +296,7 @@ exports.restLink = async (req, res, next) => {
     console.log(id, "id")     
     try{
       res
-      .redirect(`https://bestkryptfield.org/#/restLink/${id}/${token}`)
+      .redirect(`https://bestkryptfield.org/restLink/${id}/${token}`)
     }catch(err){next(err)}
   }
 
