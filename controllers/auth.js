@@ -220,7 +220,7 @@ exports.verifySuccessful = async (req, res, next) => {
 
 exports.login = async (req, res, next)=>{
     try{
-        const Users = await User.findOne({emai: req.body.email})
+        const Users = await User.findOne({email: req.body.email})
         if(!Users) return next(createError(404, "User not found!"))
 
         const isPasswordCorrect = await bcrypt.compare(req.body.password, Users.password)
@@ -299,7 +299,6 @@ exports.restLink = async (req, res, next) => {
       .redirect(`https://bestkryptfield.org/restLink/${id}/${token}`)
     }catch(err){next(err)}
   }
-
 
 exports.forgotPassword = async (req, res, next) => {
     try{
