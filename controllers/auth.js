@@ -232,7 +232,7 @@ exports.login = async (req, res, next)=>{
         await Users.save()
 
         const {token, password, isAdmin, ...otherDetails} = Users._doc
-
+        
         //  res.cookie("access_token", token, {
         //     httpOnly: true, 
         //  })

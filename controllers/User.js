@@ -84,6 +84,114 @@ exports.updateLastDepo = async (req,res, next) => {
        next(e)
     }
 }
+exports.updateRef = async (req,res, next) => {
+    try{
+        const id = req.params.id
+        const {ref} = req.body
+      if(!ref){
+        res.status(400).json({
+            message: "wrong input"
+        })
+      }else{
+        const refs = await User.findByIdAndUpdate(id,{ref:ref},{
+            new: true
+        })
+        res.status(201).json({
+        message:"Updated successfully",
+        data:refs
+     })
+      }
+    }catch(e){
+       next(e)
+    }
+}
+exports.updateLastWithdrawal = async (req,res, next) => {
+    try{
+        const id = req.params.id
+        const {lastWithdrawal} = req.body
+      if(!lastWithdrawal){
+        res.status(400).json({
+            message: "wrong input"
+        })
+      }else{
+        const lastDepo = await User.findByIdAndUpdate(id,{lastWithdrawal:lastWithdrawal},{
+            new: true
+        })
+        res.status(201).json({
+        message:"Updated successfully",
+        data:lastDepo
+     })
+      }
+    }catch(e){
+       next(e)
+    }
+}
+
+exports.updateDepositWalletBalance = async (req,res, next) => {
+    try{
+        const id = req.params.id
+        const {depositWalletbalance} = req.body
+      if(!depositWalletbalance){
+        res.status(400).json({
+            message: "wrong input"
+        })
+      }else{
+        const totalDepo = await User.findByIdAndUpdate(id,{depositWalletbalance:depositWalletbalance},{
+            new: true
+        })
+        res.status(201).json({
+        message:"Updated successfully",
+        data:totalDepo
+     })
+      }
+    }catch(e){
+       next(e)
+    }
+}
+
+exports.updateInterestWalletbalance = async (req,res, next) => {
+    try{
+        const id = req.params.id
+        const {interestWalletbalance} = req.body
+      if(!interestWalletbalance){
+        res.status(400).json({
+            message: "wrong input"
+        })
+      }else{
+        const totalDepo = await User.findByIdAndUpdate(id,{interestWalletbalance:interestWalletbalance},{
+            new: true
+        })
+        res.status(201).json({
+        message:"Updated successfully",
+        data:totalDepo
+     })
+      }
+    }catch(e){
+       next(e)
+    }
+}
+
+exports.updateAccountBalance = async (req,res, next) => {
+    try{
+        const id = req.params.id
+        const {currentBalance} = req.body
+      if(!currentBalance){
+        res.status(400).json({
+            message: "wrong input"
+        })
+      }else{
+        const totalDepo = await User.findByIdAndUpdate(id,{currentBalance:currentBalance},{
+            new: true
+        })
+        res.status(201).json({
+        message:"Updated successfully",
+        data:totalDepo
+     })
+      }
+    }catch(e){
+       next(e)
+    }
+}
 
 exports.updateTotalDeposit = async (req,res, next) => {
     try{
@@ -107,16 +215,38 @@ exports.updateTotalDeposit = async (req,res, next) => {
     }
 }
 
-exports.updateAccountBalance = async (req,res, next) => {
+exports.updateTotalInvest = async (req,res, next) => {
     try{
         const id = req.params.id
-        const {accountBalance} = req.body
-      if(!accountBalance){
+        const {totalInvest} = req.body
+      if(!totalInvest){
         res.status(400).json({
             message: "wrong input"
         })
       }else{
-        const totalDepo = await User.findByIdAndUpdate(id,{accountBalance:accountBalance},{
+        const totalDepo = await User.findByIdAndUpdate(id,{totalInvest:totalInvest},{
+            new: true
+        })
+        res.status(201).json({
+        message:"Updated successfully",
+        data:totalDepo
+     })
+      }
+    }catch(e){
+       next(e)
+    }
+}
+
+exports.updateTotalWithdraw = async (req,res, next) => {
+    try{
+        const id = req.params.id
+        const {totalWithdraw} = req.body
+      if(!totalWithdraw){
+        res.status(400).json({
+            message: "wrong input"
+        })
+      }else{
+        const totalDepo = await User.findByIdAndUpdate(id,{totalWithdraw:totalWithdraw},{
             new: true
         })
         res.status(201).json({
