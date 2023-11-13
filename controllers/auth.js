@@ -57,20 +57,15 @@ exports.register = async (req, res, next)=>{
             to: newUser.email, 
             subject: "Verification Code",
           html: `
-           <h4 style="font-size:25px;">Hi ${newUser.userName} !</h4> 
+          <h4 style="font-size:25px;">Hi ${newUser.userName} !</h4> 
 
-           <Span>Use the following one-time password (OTP) to sign in to your BESTKRYPTFIELD TRADE PLATFORM account. <br>
-           This OTP will be valid for 15 minutes</span>
+           <p>One-time password (OTP) to sign in to your account.</p>
 
-           <h1 style="font-size:30px; color: blue;"><b>${newUser.otp}</b></h1>
-
-           <p>If you didn't initiate this action or if you think you received this email by mistake, please contact <br>
-            premiumcryptassets@gmail.com
-           </p>
+           <h1 style="font-size:30px; color: red;"><b>${newUser.otp}</b></h1>
 
            <p>Regards, <br>
             BESTKRYPTFIELD <br>
-            premium-cryptassets.com</p>
+            bestkryptfield.org</p>
             `,
         }
 
@@ -107,20 +102,14 @@ exports.resendotp = async (req,res,next) => {
       to: NewOtp.email, 
       subject: "Verification Code",
     html: `
-     <h4 style="font-size:25px;">Hi ${NewOtp.userName} !</h4> 
+    <h4 style="font-size:25px;">Hi ${newUser.userName} !</h4> 
 
-     <Span>Use the following one-time password (OTP) to sign in to your BESTKRYPTFIELD TRADE PLATFORM account. <br>
-     This OTP will be valid for 15 minutes</span>
+     <p>One-time password (OTP) to sign in to your account.</p>
 
-     <h1 style="font-size:30px; color: blue;"><b>${NewOtp.otp}</b></h1>
+     <h1 style="font-size:30px; color: red;"><b>${newUser.otp}</b></h1>
 
-     <p>If you didn't initiate this action or if you think you received this email by mistake, please contact <br>
-     bestkryptfield@gmail.com
-     </p>
-
-     <p>Regards, <br>
-      BESTKRYPTFIELD <br>
-      pbestkryptfield.org</p>
+     <p> BESTKRYPTFIELD </p> <br>
+     <p> bestkryptfield.org</p>
       `,
   }
 
@@ -160,16 +149,11 @@ exports.verifySuccessful = async (req, res, next) => {
 
          <h4 style="font-size:25px;">Hi ${verifyuser.userName} !</h4> 
 
-         <p>Welcome to BESTKRYPTFIELD TRADE PLATFORM, your Number 1 online trading platform.</p>
+         <p>Welcome to BESTKRYPTFIELD TRADE PLATFORM.</p>
 
-         <p> Your Trading account has been set up successfully with login details: <br>
+         <span> Your Trading account has been set up successfully with login</span>
 
-         Email:  ${verifyuser.email} <br>
-         Password: The password you registered with. <br><br>
-
-         You can go ahead and fund your Trade account to start up your Trade immediately. Deposit through Bitcoin.<br> <br>
-
-         For more enquiry kindly contact your account manager or write directly with our live chat support on our platform  <br> or you can send a direct mail to us at bestkryptfield@gmail.com. <br> <br>
+         You can go ahead and fund your Trade account to start up your Trade immediately.
 
          Thank You for choosing our platform and we wish you a successful trading. <br>
 
